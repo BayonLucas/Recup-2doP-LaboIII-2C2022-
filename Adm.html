@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Huellitas (adoptando como un campeón) - Administración</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="./css/estilos.css">
+        <link rel="stylesheet" href="./css/tablaDinamica.css">
+    
+    </head>
+    <body>
+    
+        <header>
+            <nav id="nav-header">
+                <a href="./index.html" title="Pagina Principal">
+                    <img id="logo" src="./img/logo.png" alt="logo">
+                </a>
+                <ul>
+                    <li ><a class="links" href="./Adm.html">Anuncios</a></li>
+                    <li ><a class="links" href="#nosotros">Nosotros</a></li>
+                    <li ><a class="links" href="#blog">Blog</a></li>
+                    <li ><a class="links" href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <main>
+            <div id="titulo">
+                <h1>Administración</h1>
+                <div id="banner">
+                    <img src="./img/banner.png" alt="banner">
+                </div>
+    
+            </div>
+    
+            <div id="form-container">
+                <fieldset id="fieldset-parent">
+                    <legend>Infomacion Del Anuncio</legend>
+                    <form >
+                        <fieldset id="form-titulo">
+                            <label for="txtTitulo">Titulo</label><br> 
+                            <input class="input-large" type="text" name="Titulo" id="txtTitulo" placeholder="Titulo">
+                            <small></small>
+                        </fieldset>
+             
+                        <fieldset id="form-descripcion">
+                            <label for="txtDescripcion">Descripcion</label> <br>
+                            <input class="input-large" type="text" name="Descripcion" id="txtDescripcion" placeholder="Descripción">
+                            <small></small>
+                        </fieldset>
+               
+                        <fieldset id="fielset-Animal">
+                            <label >Animal:</label><br>
+                            <fieldset id="form-Animal">
+                                <label for="chPerro">Perro:
+                                    <input type="radio" name="Animal" id="chPerro" value="Perro" checked>
+                                </label>
+                                <label for="chGato">Gato:
+                                    <input type="radio" name="Animal" id="chGato"  value="Gato" >
+                                </label>
+                            </fieldset>
+                        </fieldset>
+                        
+                        <fieldset id="form-precio">
+                            <label for="txtPrecio">Precio</label> <br>
+                            <input class="input-large" type="text" name="Precio" id="txtPrecio" placeholder="Precio">
+                            <small></small>
+                        </fieldset>
+    
+                        <fieldset id="form-especificaciones">
+                            <img src="./img/animal.png" alt="raza">
+                            <input class="input-medium" type="text" name="Raza" id="txtRaza" placeholder="Raza">
+                            <img src="./img/ciguena.png" alt="fecha de nacimiento">
+                            <input class="input-medium" type="date" name="Fecha" id="dateFecha" placeholder="dd/mm/aaaa">
+                            <img src="./img/jeringuilla.png" alt="vacunas">
+                            <select class="input-medium" name="Vacunas" id="sltVacunas">
+                                <option value="-1"selected >---Elegir---</option>
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </fieldset>
+
+                    </form>
+                </fieldset>
+                <br><br><br>
+            </div>
+            <div id="buttons-container">
+                <button id="btnGuardar"><img src="./img/guardar-el-archivo.png" alt="">Guardar</button>
+                <button id="btnModificar" class="invisible">Modificar</button>
+                <button id="btnEliminar" class="invisible">Eliminar</button>
+                <button id="btnCancelar" class="invisible">Cancelar</button>
+                <br><small></small>
+            </div>
+    
+
+
+            <fieldset id="filter">
+                <div>
+                    <label > Filtrar Animal</label> <br>
+                    <select  class="input-medium" name="Filtro" id="sltFiltro">
+                        <option value="-1"selected disabled>---Elegir---</option>
+                        <option value="0">Todo</option>
+                        <option value="1">Perro</option>
+                        <option value="2">Gato</option>
+                    </select>
+                </div>
+                <div>
+                    <label > Promedio</label><br>
+                    <input type="text" name="Promedio" id="txtPromedio" disabled>
+                </div>
+            </fieldset>
+            
+            <fieldset id="filtroColumnas">
+                <div>
+                    <label>Titulo</label>
+                    <input type="checkbox" name="" id="chTitulo" value="titulo" checked>
+                </div>
+                <div>
+                    <label>Descripcion</label>
+                    <input type="checkbox" name="" id="chDescripcion" value="descripcion" checked>
+                </div>
+                <div>
+                    <label>Especie</label>
+                    <input type="checkbox" name="" id="chEspecie" value="especie" checked>
+                </div>
+                <div>
+                    <label>Precio</label>
+                    <input type="checkbox" name="" id="chPrecio" value="precio" checked>
+                </div>
+                <div>
+                    <label>Raza</label>
+                    <input type="checkbox" name="" id="chRaza" value="raza" checked>
+                </div>
+                <div>
+                    <label>Fecha Nacimiento</label>
+                    <input type="checkbox" name="" id="chFechaNacimiento" value="fechaNacimiento" checked>
+                </div>
+                <div>
+                    <label>Vacunas</label>
+                    <input type="checkbox" name="" id="chVacunas" value="vacunas" checked>
+                </div>
+            </fieldset>
+            
+
+            <br><br>
+            <div class="spinner">
+                <img src="./img/pawprint.gif" alt="spinner" id="spinner" />
+            </div>
+
+            <div id="tabla-container">
+            </div>
+            <br><br>
+    
+        </main>
+        
+        <footer>
+            <nav id="nav-footer">
+                <ul>
+                    <li ><a class="links" href="/Adm.html">Anuncios</a></li>
+                    <li ><a class="links" href="#nosotros">Nosotros</a></li>
+                    <li ><a class="links" href="#blog">Blog</a></li>
+                    <li ><a class="links" href="#contacto">Contacto</a></li>
+                </ul>
+                <p>Todos los derechos reservados 2019 &copy;</p>
+            </nav>
+        </footer>
+    
+        <script src="./scripts/app.js" type="module"></script>
+    
+    </body>
+</html>
