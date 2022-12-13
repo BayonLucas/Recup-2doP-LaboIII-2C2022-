@@ -140,7 +140,7 @@ filtro.addEventListener("change", (e) => {
         }
     });
     playSpinner(actualizarTabla, null, aux);
-    promedio.value = aux.reduce((a, b) => a + b.precio, 0); 
+    promedio.value = (aux.reduce((a, b) => a + b.precio, 0)) / aux.length; 
 });
 
 //#region funciones
@@ -152,6 +152,7 @@ function getNuevoID(arr){
     if(arr.length != 0){
         id = arr[arr.length-1].id + 1;
     }
+
     return id;
 }
 function estaCompleto(txtTitulo, txtDescripcion, txtPrecio, txtRaza, dateFecha, sltVacunas){
@@ -159,6 +160,7 @@ function estaCompleto(txtTitulo, txtDescripcion, txtPrecio, txtRaza, dateFecha, 
     if(txtTitulo.value == "" || txtDescripcion.value == "" || txtPrecio.value == "" || txtRaza.value == "" || dateFecha.value == "" || sltVacunas.value == "-1"){
         ret = false;
     }
+
     return ret;
 }
 function limpiarInputs(){
@@ -175,6 +177,7 @@ function crearAnuncio(id){
     if(!estaCompleto(txtTitulo, txtDescripcion, txtPrecio, txtRaza, dateFecha, sltVacunas)){
         return null;
     }
+    
     return new Anuncio_Animal(id, txtTitulo.value, txtDescripcion.value, getEspecie(), txtPrecio.value, txtRaza.value, dateFecha.value, sltVacunas.value);
 }
 function agregarAnuncio(lista, anuncio){

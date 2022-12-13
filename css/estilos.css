@@ -1,26 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
 body{
     margin: 0;
     border: 0;
 }
+
 main{
-    /* height: calc(100vh - 80px - 80px) ; */
     height: 100vh ;
 }
+
 header, footer{
     background-color: orange;  
     width: 100%;  
     height: 80px;
     margin: 0;
-    
+    display: flex;
+    justify-content: center;
 }
-li{
-    list-style: none;
-}
+
 .links{
     color: black;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
 }
+
+li{
+    list-style: none;
+}
+
+fieldset{
+    margin: 10px;
+}
+
 h1{
     margin: 0%;
     text-align: center;
@@ -32,155 +46,153 @@ h1{
     border-left: 0ch;
     border-right: 0ch;
 }
-fieldset{
-    margin: 10px;
-}
 
 
-/* ------------------------------------------------------------------------------------------ */
-/*Header*/
+/* ---------------------- Header ----------------------- */
 header{
-    display: flex;
-    justify-content: center;
+    top: 0;
+    left: 0;
+    position: sticky;
 }
 
 #logo{
     width: 80px;
     height: 70px;
 }
-#nav-header{
+
+#nav-header, #nav-footer{
     width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: bold;
 }
-/* ------------------------------------------------------------------------------------------ */
-/*footer*/
-footer{
-    display: flex;
-    justify-content: center;
+
+/* ------------------- Media querys -------------------- */
+@media screen and (max-width: 1320px){
+    #form-especificaciones {
+        display: flex;
+        align-items: center;    
+        flex-direction: column;
+        margin-bottom: 10em;
+    }
+
+    #form-container {
+        height: 750px; 
+    }
+
+    #banner>img {
+        display: none;
+    }
+
+    main {
+        height: calc(100em) ;
+    }
+
+    #tabla-container {
+        width: 90%;
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    table {
+        width: 70%;
+        display: block;
+        overflow: auto;
+        padding: 10px;
+    }
+
+    header, footer {
+        height: auto;
+    }
+
+    header nav, footer nav {
+        display: flex;
+        flex-direction: column;
+    }
+
 }
-#nav-footer{
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+@media screen and (min-width: 1150px){
+    #form-especificaciones{
+        align-items: center;
+    }
+
 }
-/* ------------------------------------------------------------------------------------------ */
 
-
-
-/* Formulario */
+/* -------------------- Formulario --------------------- */
 #form-container{
-    width: 90%;
     display: flex;
     justify-content: center;
     align-content: center;
-    align-items: center;
-    height: 500px; /*450px*/
+    /* height: 40vh;  */
     padding: 10px;
     margin: 10px;
     flex-wrap: wrap;
 }
+
 #fieldset-parent{
-    width: 90%;
-    height: 100%; /*90%*/
+    width: 70%;
+    height: 80%; 
     display: flex;
     flex-direction: column;
+    padding: 15px;
 }
+
 #fieldset-parent fieldset{
     border-style: none;
     border: 0;
     height: 60px;
 }
+
 input, select{
     border-style: none;
     background-color: lightgrey;
     padding: 10px;
     border-radius: 10px;
 }
+
 .input-large{
     width: 100%;
 }
+
 .input-medium{
     width: 28%;
 }
+
 #fielset-Animal{
     margin-top: 0;
     margin-bottom: 0;
 }
+
 #form-Animal{
     display: flex;
     justify-content: center;
     margin: 0;
     padding: 0;
 }
+
 input[type="radio"]{
     margin: 0 20px;
 }
+
 #form-especificaciones > img{
     width: 20px;
     padding: 2px 2px 2px 2px;
     display: inline;
 }
-#vacunas-Container{
-    border: 0;
-    margin: 0;
-}
-.vac-visible{
-    display: flex;
-    justify-content: space-evenly;
-}
-/* ------------------------------------------------------------------------------------------ */
-
-@media screen and (max-width: 1150px){
-    #form-especificaciones{
-        display: flex;
-        align-items: center;    
-        flex-direction: column;
-        margin-bottom: 10em;
-    }
-    #form-container{
-        height: 700px; /*450px*/
-    }
-    #banner>img{
-        display: none;
-    }
-    main{
-        height: calc(100vh) ;
-    }
-    
-}
-@media screen and (max-width: 850px){
-    #tabla-container {
-        margin: 0;
-        border: 10px;
-        padding: 10px;
-    }
-    table {
-        width: 90vh;
-        display:block;
-        overflow: scroll;
-        overflow-x: scroll;
-    }
-}
-@media screen and (min-width: 1150px){
-    #form-especificaciones{
-        align-items: center;
-    }
-}
 
 
+/* ---------------------------------------------------- */
 #buttons-container{
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-
 #banner{
     width: 100%;
 }
+
 #banner>img{
     width: 100%;
     height: 150px;
@@ -192,6 +204,7 @@ input[type="radio"]{
 .inputError{
     border: 1px solid red; 
 }
+
 small{
     color: red;
     font-size: small;
@@ -213,12 +226,14 @@ small{
     width: 500px;
     height: 150px;
 }
+
 .invisible{
     display: none;
+    opacity: 0;
 }
 
 
-/*-------Filtro-------*/
+/* ---------------------- Filtro ----------------------- */
 #filter{
     display: flex;
     justify-content: space-around;
