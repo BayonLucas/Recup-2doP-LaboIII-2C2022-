@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+}
 body{
     width: 100;
     height: 100;
     background-image: url(./fondoPerro2.jpg);
-    background-size: cover;
+    background-size: auto;
 }
 header, footer{  
     width: 100%;  
     height: 80px;
     margin: 0;
+    display: flex;
+    justify-content: center;
 }
 .links{
     color: white;
@@ -23,7 +29,7 @@ li{
     padding: 20px;
     margin: 20px;
     width: 90%;
-    height: 1150px;
+    height: 78vh;
     display: flex;
     flex-flow: column;
     align-content: center;
@@ -83,7 +89,7 @@ li{
     justify-content: center;
     margin: 10px;
 }
-.card input{
+.card button{
     width: 80%;
     height: 40px;
     background-color: lightsteelblue;
@@ -91,33 +97,42 @@ li{
     font-size: x-large;
     font-weight: bold;
 }
-
-/* -------Header------------------------------------------------------------------------------ */
+@media screen and (max-width: 900px){
+    #card-Especificaciones{
+        flex-direction: column;
+    }
+    header, footer{
+        height: auto;
+        background-color: rgba(70, 67, 67, 0.61);
+    }
+    header nav, footer nav{
+        display: flex;
+        flex-direction: column;
+    }
+    #anuncios-container{
+        height: 60.8vh;
+    }
+}
+@media screen and (min-width: 1500px){
+    body{
+        background-size: cover;
+    }
+}
 header{
-    display: flex;
-    justify-content: center;
+    top: 0;
+    left: 0;
+    position: sticky;
 }
 #logo{
-    width: 80px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
 }
-#nav-header{
+#nav-header, #nav-footer{
     width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* -------Footer------------------------------------------------------------------------------ */
-footer{
-    display: flex;
-    justify-content: center;
-}
-#nav-footer{
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-weight: bold;
 }
 #nav-footer p{
     font-size: large;

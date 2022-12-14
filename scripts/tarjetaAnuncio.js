@@ -21,6 +21,9 @@ function crearTarjeta(titulo, descripcion, especie, precio, raza, fechaNacimient
     const _especie = document.createElement("p");
     _especie.textContent = "especie: " + especie;
     
+    const _divEspecificaciones = document.createElement("div");
+    _divEspecificaciones.setAttribute("id", "card-Especificaciones");
+
     const _imgraza = document.createElement("img");
     _imgraza.setAttribute("src", "./img/animal.png");
     _imgraza.setAttribute("alt", "raza");
@@ -45,20 +48,36 @@ function crearTarjeta(titulo, descripcion, especie, precio, raza, fechaNacimient
     const _vacunas = document.createElement("p");
     _vacunas.textContent = "vacunas: " + vacunas;
 
+    const _divBtn = document.createElement("div");
+    _divBtn.setAttribute("id", "card-btn");
+
     const _btnVerAnuncio = document.createElement("button");
     _btnVerAnuncio.textContent = "Ver Anuncio";
     
+
+    _divEspecificaciones.appendChild(_imgraza);
+    _divEspecificaciones.appendChild(_raza);
+    _divEspecificaciones.appendChild(_imgNacimiento);
+    _divEspecificaciones.appendChild(_fechaNacimiento);
+    _divEspecificaciones.appendChild(_imgvacunas);
+    _divEspecificaciones.appendChild(_vacunas);
+    _divBtn.appendChild(_btnVerAnuncio);
+
+
     newCard.appendChild(_titulo);
     newCard.appendChild(_descripcion);
     newCard.appendChild(_especie);
     newCard.appendChild(_precio);
-    newCard.appendChild(_imgraza);
-    newCard.appendChild(_raza);
-    newCard.appendChild(_imgNacimiento);
-    newCard.appendChild(_fechaNacimiento);
-    newCard.appendChild(_imgvacunas);
-    newCard.appendChild(_vacunas);
-    newCard.appendChild(_btnVerAnuncio);
+    
+    newCard.appendChild(_divEspecificaciones);
+    // newCard.appendChild(_imgraza);
+    // newCard.appendChild(_raza);
+    // newCard.appendChild(_imgNacimiento);
+    // newCard.appendChild(_fechaNacimiento);
+    // newCard.appendChild(_imgvacunas);
+    // newCard.appendChild(_vacunas);
+    newCard.appendChild(_divBtn);
+    // newCard.appendChild(_btnVerAnuncio);
     newCard.classList.add("card");    
 
     return newCard;
