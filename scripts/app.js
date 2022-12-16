@@ -1,6 +1,6 @@
 import Anuncio_Animal from "./Anuncio_Animal.js";
 import {crearTabla} from "./tablaDinamica.js";
-import {validarCampoVacio, validarTexto, validarImportes, validarSelectVacio} from "./validaciones.js";
+import {validarCampoVacio, validarTexto, validarImportes, validarSelectVacio, validarFecha} from "./validaciones.js";
 import { getAjaxDBMascotas, crearDBAnuncio, updateFetchAnuncio, deleteFechtPersona } from "./db.js";
  
 const listaAnuncios = await getAjaxDBMascotas();
@@ -15,7 +15,8 @@ const btnCancelar = document.getElementById("btnCancelar");
 const tabla = document.getElementById("tabla-container");
 const filtro = document.getElementById("sltFiltro");
 const promedio = document.getElementById("txtPromedio");
-const $smallBtn = btnGuardar.nextSibling;
+// const $smallBtn = btnGuardar.nextSibling;
+const $smallBtn = document.getElementById("buttons-container").querySelector("small");
 
 const spinner = document.getElementById("spinner");
 
@@ -63,20 +64,22 @@ playSpinner(await actualizarTabla, null, listaAnuncios);
 //Aplico validaciones
 for(let i = 0; i < controles.length; i++){
     const control = controles.item(i);
-    if((control.matches("input"))){
-        control.addEventListener("blur", validarCampoVacio);
-        if(control.matches("[type=text]") && !control.matches("[id=txtPrecio]") && !control.matches("[id=txtRaza]")){
-            control.addEventListener("blur", validarTexto);
-        }
-        else if(control.matches("[id=txtPrecio]")){
+    if((control.matches("input") && !control.matches("[type=checkbox]") && !control.matches("[type=radio]") )){
+        control.addEventListener("blur", validarCampoVacio);      
+        if(control.matches("[id=txtPrecio]")){
             control.addEventListener("input", validarImportes);
         }
+        else if(control.matches("[type=text]")){
+            control.addEventListener("blur", validarTexto);
+        }
+        else{
+            control.addEventListener("input", validarFecha);
+        }
     }
-    else{
+    else if(control.matches("select")){
         control.addEventListener("blur", validarSelectVacio);
     }
 }
-
 //seleccionarItemTabla 
 tabla.addEventListener("click", (e) => {
     const emisor = e.target;
@@ -241,24 +244,27 @@ function actualizarTabla(lista) {
 }
 function ModificarAnuncio(id){
     let anuncio = crearAnuncio(id);
-    if(validarAnuncio(anuncio)){
+    if(anuncio && validarAnuncio(anuncio)){
         playSpinner(updateFetchAnuncio, anuncio);
+    }
+    else{
+        $smallBtn.textContent = "No pueden haber campos vacios";
     }
 }
 function modificarBotones(){
     if(estadoBotones === 0){
-        btnGuardar.classList.add("invisible");
-        btnModificar.classList.remove("invisible");
-        btnEliminar.classList.remove("invisible");
-        btnCancelar.classList.remove("invisible");
+        btnGuardar.classList.add("d-none");
+        btnModificar.classList.remove("d-none");
+        btnEliminar.classList.remove("d-none");
+        btnCancelar.classList.remove("d-none");
         if(idSelected ===0)
             estadoBotones = 1;
     }
     else{
-        btnGuardar.classList.remove("invisible");
-        btnModificar.classList.add("invisible");
-        btnEliminar.classList.add("invisible");
-        btnCancelar.classList.add("invisible");
+        btnGuardar.classList.remove("d-none");
+        btnModificar.classList.add("d-none");
+        btnEliminar.classList.add("d-none");
+        btnCancelar.classList.add("d-none");
         estadoBotones = 0;
     }
 }
@@ -297,7 +303,7 @@ function playSpinner(callback, anuncio = null, lista = null ){
 
 function validarAnuncio(a){
     let ret = false;
-    if(a.titulo !== "Error" && a.descripcion !== "error", a.especie!== "error" && a.precio!== -1 && a.raza !==-1 && a.vacunas!== "error"){
+    if((a.titulo !== "Error" || a.titulo !== "") && (a.descripcion !== "Error" || a.descripcion !== "") && (a.especie !== "Error" || a.especie !== "") && (a.precio !== -1 || a.precio !== "") && (a.raza !== "Error" || a.titulo !== "") && a.vacunas!== "error"){
         ret = true;
     }
     return ret;

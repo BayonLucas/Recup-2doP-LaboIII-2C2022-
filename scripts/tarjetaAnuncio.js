@@ -8,7 +8,7 @@ const contenedor = document.getElementById("anuncios-container");
 
 function crearTarjeta(titulo, descripcion, especie, precio, raza, fechaNacimiento, vacunas ) {
     const newCard = document.createElement("div");
-    
+
     const _titulo = document.createElement("h3");
     _titulo.textContent = "Titulo: " + titulo;
     

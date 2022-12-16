@@ -1,6 +1,10 @@
 const setError = (input, mensaje) =>{
     const $small = input.nextElementSibling;
     input.classList.add("inputError");
+    //bootstrap
+    input.classList.add("border");
+    input.classList.add("border-danger");
+
     if($small){
         $small.textContent = mensaje || `${input.name} requerido`;
     }
@@ -8,9 +12,12 @@ const setError = (input, mensaje) =>{
 const clearError = (input) =>{
     const $small = input.nextElementSibling;
     if($small && $small.textContent !== ""){
-        input.classList.remove("inputError")
         $small.textContent = "";
     }
+    input.classList.remove("inputError")
+    //bootstrap
+    input.classList.remove("border")
+    input.classList.remove("border-danger")
 }    
 const validarLogitudMinima = (input, minimo) =>{
     return input.value.trim().length >= minimo;
@@ -37,7 +44,7 @@ export const validarImportes = (e) =>{
 }
 export const validarTexto = (e) => {
     const input = e.target;
-    const pattern = /^([a-zA-Z0-9])\w+/g;
+    const pattern = /^([a-zA-ZÀ-ÿ\u00f1\u00d1])\w+/g;
     const text = input.value.trim();
 
     let message = "";
@@ -45,6 +52,7 @@ export const validarTexto = (e) => {
     if(text.length !== 0){
         if(!validarLogitud(input, 4,25)){
             message = message + "El campo debe contener entre 4 y 25 caracteres. ";
+            console.log(input + " - Mensaje: " + message);
         }
         
         if(!pattern.test(text)){
@@ -63,13 +71,11 @@ export const validarTexto = (e) => {
 export const validarCampoVacio = (e) => {
     const input = e.target;
     const value = input.value.trim();
-    if(input.nextElementSibling && input.nextElementSibling.textContent === ""){
-        if(!value){
-            setError(input);
-        }else{
-            clearError(input);
-        }    
-    }
+    if(!value){
+        setError(input);
+    }else{
+        clearError(input);
+    }    
 };
 export const validarSelectVacio = (e) => {
     const input = e.target;
@@ -79,7 +85,14 @@ export const validarSelectVacio = (e) => {
         clearError(input);
     }  
 };
-
+export const validarFecha = (e) => {
+    const input = e.target;
+    if(input.value === ""){
+        setError(input);
+    }else{
+        clearError(input);
+    }  
+}
 
 /* Validaciones sin usar
 export const validarExtencion = (e) =>{

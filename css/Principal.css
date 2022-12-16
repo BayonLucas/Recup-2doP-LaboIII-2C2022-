@@ -10,7 +10,7 @@ body{
 }
 header, footer{  
     width: 100%;  
-    height: 80px;
+    height: 140px;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -29,7 +29,7 @@ li{
     padding: 20px;
     margin: 20px;
     width: 90%;
-    height: 78vh;
+    height: 74vh;
     display: flex;
     flex-flow: column;
     align-content: center;
@@ -110,7 +110,7 @@ li{
         flex-direction: column;
     }
     #anuncios-container{
-        height: 60.8vh;
+        height: 67.7vh;
     }
 }
 @media screen and (min-width: 1500px){

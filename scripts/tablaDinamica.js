@@ -1,6 +1,7 @@
 function crearCabecera(row) {
-  const cabecera = document.createElement("thead"),
-    tr = document.createElement("tr");
+  const cabecera = document.createElement("thead")
+  cabecera.setAttribute("class", "table-dark");
+  const tr = document.createElement("tr");
   for (const key in row) {
     if(key === "id"){
         continue;
@@ -59,6 +60,7 @@ export function crearTabla(data) {
   }
 
   const tabla = document.createElement("table");
+  tabla.setAttribute("class", "table table-striped table-hover mx-auto w-auto th-")
   tabla.appendChild(crearCabecera(data[0])); //primera persona
   tabla.appendChild(crearCuerpo(data));
 

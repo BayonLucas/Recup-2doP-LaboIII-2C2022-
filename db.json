@@ -2,63 +2,43 @@
   "mascotas": [
     {
       "id": 1,
-      "titulo": "relleno1",
-      "descripcion": "relleno1",
+      "titulo": "PrimerCarga",
+      "descripcion": "Pruebita de 1erCarga",
       "especie": "Perro",
-      "precio": 100,
-      "raza": "relleno1",
-      "fechaNacimiento": "2022-09-26",
-      "vacunas": "No"
-    },
-    {
-      "id": 2,
-      "titulo": "relleno2",
-      "descripcion": "relleno2",
-      "especie": "Gato",
-      "precio": 200,
-      "raza": "relleno2",
-      "fechaNacimiento": "2022-10-14",
+      "precio": 1000,
+      "raza": "Caniche",
+      "fechaNacimiento": "2022-12-24",
       "vacunas": "Si"
     },
     {
       "id": 3,
       "titulo": "Para Modificar",
-      "descripcion": "Me volvieron a modificar",
+      "descripcion": "Ya me modificaron",
       "especie": "Perro",
-      "precio": 2000,
-      "raza": "testRaza",
-      "fechaNacimiento": "2022-10-26",
-      "vacunas": "No"
+      "precio": 33333,
+      "raza": "Modificado",
+      "fechaNacimiento": "2022-12-15",
+      "vacunas": "Si"
+    },
+    {
+      "id": 4,
+      "titulo": "CuartaCarga",
+      "descripcion": "Cuarto Ingreso",
+      "especie": "Gato",
+      "precio": 4000,
+      "raza": "asdasd",
+      "fechaNacimiento": "2022-12-14",
+      "vacunas": "Si"
     },
     {
       "id": 5,
-      "titulo": "relleno5",
-      "descripcion": "relleno5",
-      "especie": "Perro",
-      "precio": 1000,
-      "raza": "relleno5",
-      "fechaNacimiento": "2022-10-04",
-      "vacunas": "No"
-    },
-    {
-      "id": 9,
-      "titulo": "zaraza",
-      "descripcion": "cualquier cosa que sirva",
+      "titulo": "quinto",
+      "descripcion": "PostIngresoErroneo",
       "especie": "Gato",
-      "precio": 3000,
-      "raza": "razita",
-      "fechaNacimiento": "2022-11-09",
-      "vacunas": "Si"
-    },
-    {
-      "id": 10,
-      "titulo": "testAjax",
-      "descripcion": "Estoy cargando desde ajax",
-      "especie": "Perro",
-      "precio": 500,
-      "raza": "ajax",
-      "fechaNacimiento": "2022-11-09",
-      "vacunas": "Si"
+      "precio": 999,
+      "raza": "testRaza",
+      "fechaNacimiento": "2022-12-06",
+      "vacunas": "No"
     }
   ]
 }

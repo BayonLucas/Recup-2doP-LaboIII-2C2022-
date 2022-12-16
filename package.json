@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/BayonLucas/Recup-2doP-LaboIII-2C2022-#readme",
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "json-server": "^0.17.1"
   }
 }
